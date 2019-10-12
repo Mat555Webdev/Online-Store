@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TECH-FOR-YOU</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!--animation link used to animate the css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"
+    />
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+
+    <style>
+      h1 {
+        text-align: center;
+        border-bottom: solid 3px;
+        padding-top: 8px;
+      }
+
+      .piclayout {
+        background-color: lightslategray;
+        animation-name: anime;
+        animation-duration: 5s;
+      }
+
+      @keyframes anime {
+        from {
+          background-color: lightslategray;
+        }
+
+        to {
+          background-color: #e0e1e5;
+        }
+      }
+      li {
+        list-style: none;
+        display: flex;
+        padding-left: 3px;
+      }
+      .itemname,
+      .itemprice,.vat {
+        padding-left: 15px;
+        width: 160px;
+        height: 15px;
+        font-size: 16px;
+      }
+      .vat {
+        color: rgb(100, 100, 100);
+      }
+
+      .addToCartbtn {
+        position: absolute;
+        top: 208px;
+        left: 190px;
+        width: 78px;
+        height: 50px;
+        border: solid 0.3px lightslategray;
+        background-color: #e0e1e5;
+        color: #133853;
+      }
+      /*code for testing cart below*/
+      #Cart {
+        height: 100vh;
+        color: #133853;
+      }
+      #cartrow,
+      #cartheaders,
+      .cartrow > td {
+        border-right: dotted 1px black;
+        border-left: dotted 1px black;
+        border-bottom: dotted 1px black;
+        padding-left: 8px;
+      }
+      #cartTable {
+        border: dotted 1px black;
+        background-color: lightgrey;
+        width: 99.7%;
+        border: dotted grey 1px;
+        text-align: left;
+        padding-left: 8px;
+      }
+
+      .Removebtn {
+        width: 63px;
+        height: 50px;
+        font-size: 1em;
+        text-align: center;
+        border: royalblue;
+        border-radius: 13px;
+        border: dotted 0.1px black;
+      }
+
+      .cart-quantity-input {
+        width: 80px;
+        height: 50px;
+        text-align: center;
+        border: royalblue;
+        border-radius: 13px;
+        border: dotted 0.1px black;
+      }
+      @media (max-width: 1080px) {
+        .itemname,
+        .itemprice,.vat {
+          margin-left: -50px;
+          width: 160px;
+          height: 15px;
+          font-size: 16px;
+        }
+        .vat {
+          color: rgb(100, 100, 100);
+        }
+        .addToCartbtn {
+          position: absolute;
+          top: 208px;
+          left: 190px;
+          width: 78px;
+          height: 50px;
+          border: solid 0.3px lightslategray;
+          background-color: #e0e1e5;
+          color: #133853;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="products">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <a class="navbar-brand logo" href="../index.html"
+          >Technology For You<i class="fas fa-laptop"></i
+        ></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#nav1"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="nav1" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-item">
+              <a class="nav-link" href="home.html">HOME</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="products.html">PRODUCTS</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="contactUs.html">CONTACT US</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="shoppingcart.html"
+                ><i class="fas fa-cart-plus "></i
+              ></a>
+            </li>
+            <li class="navbar-search">
+              <form class="form-inline">
+                <input
+                  class="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Looking for anything?"
+                  aria-label="Search"
+                />
+                <button class="btn" type="submit">Search</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!---Bootstrapgrid below-->
+    <div class="container-fluid piclayout animated bounceInRight">
+      <h1>This months catalogue</h1>
+      <div class="row my-row">
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/Dellinspiron.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice" id="price">R8999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname" id="items">Dell Inspiron</li>
+            </ol>
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/MACBOOKPRO.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R17000.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">Macbook Pro</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/MACBOOKAIR.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R13999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">Macbook Air</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/Nvidia.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R5999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">1050GTX GPU</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-row">
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/S10+.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R11999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">Samsng S10</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/IphoneX.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R12999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">iPhoneX</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/P30.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R3999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">Huawei P30</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/officeHome.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R1999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">MS Office</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-row">
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/accesspoint.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">Wireless AP</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/ps4.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R6999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">Sony PS4</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/xbox1.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R5999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">Xbox1</li>
+            </ol>
+
+            <ol></ol>
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="details">
+            <img
+              class="itemimage"
+              src="../Images/Windows10Home.jpeg"
+              alt="Unable to load"
+            />
+            <ol>
+              <li class="itemprice">R2999.00</li>
+              <li class="vat">Incl.vat</li>
+              <li class="itemname">Win10 Home</li>
+            </ol>
+
+            <button class="addToCartbtn" type="button">
+              <i class="fas fa-cart-plus ">Add to cart</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer1">
+        <table>
+          <tr>
+            <th>Contact us</th>
+            <th>Follow us on</th>
+            <th>Image sources</th>
+          </tr>
+          <tr>
+            <td><i class="fa fa-road"></i>88 Success str.</td>
+            <td><i class="fab fa-twitter-square"></i>Twitter</td>
+            <td>
+              <a target="_blank" href="https://www.pexels.com/"
+                >www.pexels.com</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-envelope"></i>tech4U@success.com</td>
+            <td><i class="fab fa-facebook"></i>Facebook</td>
+            <td>
+              <a
+                target="_blank"
+                href="https://www.google.co.za/imghp?hl=en-GB&tab=ri/"
+                >www.google.com</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-phone"></i>(+27)33 333 3333</td>
+            <td><i class="fab fa-instagram"></i>Instagram</td>
+            <td>
+              <a target="_blank" href="https://fontawesome.com/"
+                >fontawesome.com</a
+              >
+            </td>
+          </tr>
+        </table>
+      </div>
+    </footer>
+    <script src="../scripts/products.js" async></script>
+  </body>
+</html>

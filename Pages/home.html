@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TECH-FOR-YOU</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!--Fontawesome link used for all icons in the document-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      h1 {
+        text-align: center;
+        border-bottom: solid 3px;
+        padding-top: 30px;
+        color: #133853;
+      }
+      h2 {
+        text-align: center;
+        border-bottom: solid 1px;
+        padding-top: 30px;
+        color: #133853;
+      }
+
+      h4 #h4two {
+        text-align: center;
+        margin-top: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      h5 {
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      .Onclick {
+        border: solid #133853 0.7px;
+        border-radius: 5px;
+        padding: 0 50px 0 50px;
+        width: 27%;
+        height: 210px;
+        background-size: cover;
+        display: inline-block;
+        margin: 3%;
+        position: relative;
+      }
+
+      .Onclick * {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+      }
+
+      .Onclick div {
+        z-index: 1;
+        color: whitesmoke;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: 0.5s;
+        border-radius: 5px;
+      }
+
+      .Onclick div:active {
+        opacity: 1;
+      }
+
+      .my-colone {
+        border-right: dotted #133853 1px;
+      }
+
+      .my-coltwo,
+      .my-colone {
+        height: 110vh;
+      }
+
+      p {
+        color: #133853;
+        text-align: center;
+      }
+
+      .my-rowOne {
+        width: 99.7%;
+      }
+
+      .customradio {
+        display: inline-block;
+      }
+
+      .my-coltwo,
+      .my-colone {
+        height: 110vh;
+      }
+      #more_details1 {
+        padding-left: 10px;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+      }
+      #customerimage {
+        height: 90px;
+        margin-left: 120px;
+      }
+      #images > img {
+        width: 200px;
+        height: 150px;
+        margin: 10px;
+        margin-left: 24px;
+        border: dotted 1.3px #133853;
+      }
+      @media (max-width: 1080px) {
+        #images > img {
+          width: 200px;
+          height: 170px;
+          margin: 10px;
+          margin-left: 24px;
+          border: dotted 1.3px #133853;
+        }
+        #customerimage {
+          margin-left: 55px;
+          height: 80px;
+          width: 180px;
+        }
+        #customerServMesg {
+          font-size: 7px;
+          margin-bottom: 0;
+          margin-top: 13px;
+        }
+      }
+      @media (max-width: 768px) {
+        table {
+          background-color: white;
+          text-align: center;
+          margin: 0 5px 0 3px;
+          position: absolute;
+          top:270%;
+          bottom: 0;
+          width: 91.7%;
+          border: solid grey 1px;
+         
+        }
+        .my-colone{
+          display:none;
+        }
+        .imageforNOTmobile{
+          display:none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!---below, a bootstrap4 navbar, which will be applied to all other pages,
+    Jquery is used for responsive burger dropdown menu for navbar on mobile devices-->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <a class="navbar-brand logo" href="../index.html"
+          >Technology For You<i class="fas fa-laptop"></i
+        ></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#nav1"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="nav1" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-item">
+              <a class="nav-link" href="home.html">HOME</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="products.html">PRODUCTS</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="contactUs.html">CONTACT US</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="shoppingcart.html"
+                ><i class="fas fa-cart-plus "></i
+              ></a>
+            </li>
+            <li class="navbar-search">
+              <form class="form-inline">
+                <input
+                  class="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Looking for anything?"
+                  aria-label="Search"
+                />
+                <button class="btn" type="submit">Search</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!--below, a bootstrap4 grid used for the layout of the home page-->
+    <div class="row my-rowOne animated bounceInRight">
+      <div class="col-md-3 my-colone">
+        <p
+          id="customerServMesg"
+          style="font-size: 20px; margin-bottom: 0;margin-top:13px;"
+        >
+          <b>
+            Customer service is our constant focus, we pride ourselves in always
+            placing our cutomers before anything else</b
+          >
+        </p>
+        <h4><u>One of many satisfied customers</u></h4>
+        <h5><b>Sandra from Innovative designs</b></h5>
+        <img
+          id="customerimage"
+          src="../Images/anonymous.jpeg"
+          alt="Unable to load"
+        />
+        <hr />
+        <p id="customerComment">
+          Technology for you has increased the standard of my business, I no
+          longer have to be concerned about smart and affordable solutions. The
+          customer service is excellent, nothing short of brilliant.
+        </p>
+      </div>
+
+      <div class="col-md-9 my-coltwo">
+        <h1>You have a problem, we have the solution</h1>
+        <h2>About Us</h2>
+        <p style="font-size: 16px;">
+          Technology for you has been in operation since 2015, since then we
+          have climbed the ranks amongst our competitors. Our client base has
+          grown rapidly, because of our excellent service delivery. John Doe
+          founded the company in a small town called kimberley in the Northern
+          Cape, and has dedicated his life to enabling companies to shift from
+          ancient business operation to future business operation.
+        </p>
+        <h3 style="color:#133853">
+          Products frequently purchased by our clients:
+        </h3>
+        <div id="images">
+          <img class="imageformobile" src="../Images/IphoneX.jpeg" alt="Unable to load" />
+
+          <img class="imageformobile" src="../Images/MACBOOKAIR.jpeg" alt="Unable to load" />
+
+          <img class="imageformobile" src="../Images/MACBOOKPRO.jpeg" alt="Unable to load" />
+
+          <img class="imageforNOTmobile" src="../Images/Windows10Home.jpeg" alt="Unable to load" />
+
+          <img class="imageforNOTmobile" src="../Images/accesspoint.jpeg" alt="Unable to load" />
+
+          <img class="imageforNOTmobile" src="../Images/ps4.jpeg" alt="Unable to load" />
+
+          <img class="imageforNOTmobile" src="../Images/xbox1.jpeg" alt="Unable to load" />
+
+          <img class="imageforNOTmobile" src="../Images/IphoneX.jpeg" alt="Unable to load" />
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer1">
+        <table>
+          <tr>
+            <th>Contact us</th>
+            <th>Follow us on</th>
+            <th>Image sources</th>
+          </tr>
+          <tr>
+            <td><i class="fa fa-road"></i>88 Success str.</td>
+            <td><i class="fab fa-twitter-square"></i>Twitter</td>
+            <td>
+              <a target="_blank" href="https://www.pexels.com/"
+                >www.pexels.com</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-envelope"></i>tech4U@success.com</td>
+            <td><i class="fab fa-facebook"></i>Facebook</td>
+            <td>
+              <a
+                target="_blank"
+                href="https://www.google.co.za/imghp?hl=en-GB&tab=ri/"
+                >www.google.com</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-phone"></i>(+27)33 333 3333</td>
+            <td><i class="fab fa-instagram"></i>Instagram</td>
+            <td>
+              <a target="_blank" href="https://fontawesome.com/"
+                >fontawesome.com</a
+              >
+            </td>
+          </tr>
+        </table>
+      </div>
+    </footer>
+  </body>
+</html>

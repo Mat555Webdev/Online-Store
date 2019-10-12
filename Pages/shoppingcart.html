@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TECH-FOR-YOU</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!--animation link used to animate the css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"
+    />
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+
+    <style>
+      #purchasebtn {
+        border-radius: 10px;
+        color: #133853;
+        margin: 3px;
+      }
+      .Cart {
+        height: 100vh;
+        color: #133853;
+      }
+      .cartrow,
+      #cartheaders,
+      .cartrow > td {
+        border-right: dotted 1px black;
+        border-left: dotted 1px black;
+        border-bottom: dotted 1px black;
+        padding-left: 8px;
+      }
+      .cartrow > td > img {
+        width: 130px;
+      }
+      img {
+        width: 130px;
+      }
+
+      #cartTable {
+        border: dotted 1px black;
+        background-color: lightgrey;
+        width: 99.7%;
+        border: dotted grey 1px;
+        text-align: left;
+        padding-left: 8px;
+      }
+
+      .Removebtn {
+        width: 63px;
+        height: 50px;
+        font-size: 1em;
+        text-align: center;
+        border: royalblue;
+        border-radius: 5px;
+        border: dotted 0.1px black;
+      }
+
+      .cart-quantity-input {
+        width: 80px;
+        height: 50px;
+        text-align: center;
+        border: royalblue;
+        border-radius: 13px;
+        border: dotted 0.1px black;
+      }
+      #collectOrDeliverform {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        margin: 4px;
+        width: 380px;
+        text-align: center;
+        align-content: center;
+        background-color: whitesmoke;
+        box-shadow: 35px 38px 35px 35px #133853;
+        display: none;
+        position: absolute;
+        height: 300px;
+        top: 70px;
+        left: 600px;
+      }
+      #deliverydetailsform,
+      #discount {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        margin: 4px;
+        height: 400px;
+        width: 400px;
+        text-align: center;
+        align-content: center;
+        background-color: whitesmoke;
+        box-shadow: 35px 38px 35px 35px #133853;
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 600px;
+      }
+      #discount {
+        height: 470px;
+        width: 500px;
+        top: 70px;
+        left: 500px;
+      }
+
+      #C,
+      #D {
+        display: flex;
+        margin-left: 18px;
+      }
+      .discountbtn {
+        border-radius: 8px;
+        height: 47px;
+        align-content: center;
+        text-align: center;
+      }
+      #deliveryformcancelbtn,
+      #deliveryformsubmitbtn {
+        margin: 8px;
+        border-radius: 8px;
+        height: 47px;
+        align-content: center;
+        text-align: center;
+      }
+      #deliverydetailsform > input {
+        width: 600px;
+      }
+      #confirm_OrderCouponincluded,
+      #confirm_OrderCouponExcluded {
+        border: solid black 1px;
+        height: 300px;
+        width: 350px;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        margin: 4px;
+        text-align: center;
+        align-content: center;
+        background-color: whitesmoke;
+        box-shadow: 35px 38px 35px 35px #133853;
+        position: absolute;
+        top: 70px;
+        left: 600px;
+        display: none;
+      }
+      #confirmorderbtn,#confirmorderbtn2,#ordercancell,#ordercancell2 {
+        border-radius: 8px;
+        margin-top: 30px;
+        height: 60px;
+        align-content: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body onload="UpdateCartTotal();">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <a class="navbar-brand logo" href="../index.html"
+          >Technology For You<i class="fas fa-laptop"></i
+        ></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#nav1"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="nav1" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-item">
+              <a class="nav-link" href="home.html">HOME</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="products.html">PRODUCTS</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="contactUs.html">CONTACT US</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="shoppingcart.html"
+                ><i class="fas fa-cart-plus "></i
+              ></a>
+            </li>
+            <li class="navbar-search">
+              <form class="form-inline">
+                <input
+                  class="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Looking for anything?"
+                  aria-label="Search"
+                />
+                <button class="btn" type="submit">Search</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div>
+      <h1>Shopping Cart</h1>
+      <div class="Cart">
+        <table id="cartTable">
+          <tr id="cartheaders">
+            <th class="CartH"><u>Item decription</u></th>
+            <th class="CartH"><u>Price</u></th>
+            <th class="CartH"><u>Quantity</u></th>
+          </tr>
+        </table>
+
+        <strong>Total=</strong>
+        <span id="CartTotal"></span><br />
+        <button
+          id="purchasebtn"
+          class="btnscart"
+          type="submit"
+          onclick="onpurchase()"
+        >
+          Purchase
+        </button>
+        <!---Collection or delivery form-->
+        <div id="collectOrDeliverform">
+          <form class="customradio" id="formCorD">
+            <h3>Would you prefer a collection or delivery?</h3>
+            <div id="C" class="custom-control custom-radio">
+              <input
+                type="radio"
+                name="tech"
+                id="Collection"
+                class="custom-control-input"
+              />
+              <label for="Collection" class="custom-control-label">
+                Collect</label
+              >
+            </div>
+            <div id="D" class="custom-control custom-radio">
+              <input
+                type="radio"
+                name="tech"
+                id="delivery"
+                class="custom-control-input"
+              />
+              <label for="delivery" class="custom-control-label"
+                >Delivery</label
+              >
+            </div>
+            <button
+              type="button"
+              style="border-radius: 8px"
+              onclick="document.getElementById('collectOrDeliverform').style.display='none'"
+            >
+              Cancel
+            </button>
+            <button type="button" style="border-radius: 8px" onclick="C_or_D()">
+              Confirm
+            </button>
+          </form>
+        </div>
+
+        <!--Discount for for coupon-->
+        <div id="discount" onsubmit="discountforcoupon()">
+          <form>
+            <h5 style="color:#133853; font-size: 35px">
+              Please subscribe to our weekly catalogue for a 20% discount
+              coupon, Your coupon may only be used for this transaction.
+            </h5>
+            <label>Email</label><br/>
+            <input style="width: 300px; margin: 15px;" type="email" required />
+            <br />
+            <button
+              type="button"
+              onclick="discountcouponcancelled()"
+              class="discountbtn"
+            >
+              No Thanks
+            </button>
+            <button class="discountbtn">
+              Submit
+            </button>
+          </form>
+        </div>
+        <!--Details for delivery form-->
+        <div id="deliverydetailsform">
+          <form onsubmit="displaycoupon()">
+            <h5>Details for delivery</h5>
+            <label>Street Address</label>
+            <br />
+            <input type="text" required />
+            <br />
+            <label>Area</label>
+            <br />
+            <input type="text" required />
+            <br />
+            <label>City</label>
+            <br />
+            <input type="text" required />
+            <br />
+            <label>Postal code</label>
+            <br />
+            <input type="text" required />
+            <br />
+            <!--Type of the buttons changed to "button" because button elements
+            inside a form are submit button by default-->
+            <button
+              id="deliveryformcancelbtn"
+              onclick="backtocollectordeliv()"
+            >
+              Cancel
+            </button>
+            <button id="deliveryformsubmitbtn">Confirm</button>
+          </form>
+        </div>
+        <!--confirm order option for when the user wants a discount-->
+        <div id="confirm_OrderCouponincluded" onload="totalincludingdiscount()">
+          <h2>
+            <u>Please confirm your order</u>
+          </h2>
+          <hr />
+          <div id="insertprice">
+            <p id="newh3forprice"></p>
+          </div>
+          <button id="ordercancell2" onclick="ordercancelled()">
+            Cancel
+          </button>
+          <button id="confirmorderbtn" onclick="CouponIncluded()">
+            Confirm
+          </button>
+        </div>
+        <!--confirm order option for when the user does not want a discount-->
+        <div id="confirm_OrderCouponExcluded" onload="totalincludingdiscount()">
+          <h2>
+            <u>Please confirm your order</u>
+            
+          </h2>
+          <hr />
+          <div id="insertprice1">
+            <p id="newh3forprice2"></p>
+          </div>
+          <button id="ordercancell" onclick="ordercancelled()">
+            Cancel
+          </button>
+          <button id="confirmorderbtn2" onclick="CouponExcluded()">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../scripts/shoppingcart.js" async></script>
+  </body>
+</html>
